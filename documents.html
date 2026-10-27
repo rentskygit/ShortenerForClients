@@ -94,6 +94,44 @@
             transform: translateY(-2px);
         }
 
+        .email-fallback {
+            font-size: 13px;
+            color: #555;
+            margin-top: -5px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            text-align: center;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            border: 1px dashed #ccc;
+        }
+
+        .email-text {
+            font-weight: 600;
+            color: var(--accent-color);
+            display: block;
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .copy-btn {
+            background-color: transparent;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .copy-btn:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
         .back-link {
             display: inline-block;
             margin-top: 20px;
@@ -111,7 +149,7 @@
 <body>
 
     <div class="container">
-         <img src="Logo_JcmRealtyGroup_Vertical.jpeg" alt="JCM Realty Group Logo" class="logo">
+        <img src="Logo_JcmRealtyGroup_Vertical.jpeg" alt="JCM Realty Group Logo" class="logo">
         
         <h1>Submit Supporting Documents</h1>
         <p>Please send your supporting documents to complete your application. You can contact us via email, text message, or check your credit report directly on Experian.</p>
@@ -119,6 +157,12 @@
         <a href="mailto:jcmrealty201@gmail.com?subject=Supporting%20Documents%20-%20JCM%20Realty" class="btn btn-primary">
             📧 Send via Email
         </a>
+
+        <div class="email-fallback">
+            If the button above does not open your email app, please send your documents to:
+            <span class="email-text">jcmrealty201@gmail.com</span>
+            <button class="copy-btn" onclick="copyEmail()">Copy Email</button>
+        </div>
         
         <a href="sms:+17816704893" class="btn btn-secondary">
             💬 Send via Text Message
@@ -130,6 +174,17 @@
 
         <a href="index.html" class="back-link">&larr; Back to Home</a>
     </div>
+
+    <script>
+        function copyEmail() {
+            const email = "jcmrealty201@gmail.com";
+            navigator.clipboard.writeText(email).then(() => {
+                alert("Email copied to clipboard: " + email);
+            }).catch(err => {
+                console.error("Failed to copy: ", err);
+            });
+        }
+    </script>
 
 </body>
 </html>
